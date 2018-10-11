@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('input1') {
       steps {
-        input(message: 'is it input', ok: 'yes')
+        input(message: 'is it input', ok: 'oga')
         sh 'echo "hello world"'
       }
     }

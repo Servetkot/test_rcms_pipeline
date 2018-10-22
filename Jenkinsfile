@@ -3,25 +3,16 @@ pipeline {
   stages {
     stage('input1') {
       steps {
-        withCredentials(bindings: [[$class: 'UsernamePasswordMultiBinding', credentialsId:
-                        'meggp.vipa.uk.ibm.com', usernameVariable: 'mysecretusername',
-                        passwordVariable: 'mysecretpassword']]) {
           input(message: 'is it input', ok: 'oga')
-          sh 'echo "hello world $mysecretusername"'
-        }
+          sh 'echo "hello world"'
 
       }
     }
     stage('input2') {
       steps {
-        withCredentials(bindings: [[$class: 'UsernamePasswordMultiBinding', credentialsId:
-                        'meggp.vipa.uk.ibm.com', usernameVariable: 'mysecretusername',
-                        passwordVariable: 'mysecretpassword']]) {
           echo 'hello 2'
           input(message: 'is it second input?', ok: 'yea')
-          sh 'echo "goodbay $mysecretpassword"'
-        }
-
+          sh 'echo "goodbay"'
       }
     }
   }
